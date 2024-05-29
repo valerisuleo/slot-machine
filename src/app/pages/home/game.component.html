@@ -1,0 +1,37 @@
+<main [class]="isSpinning() ? 'animate__animated animate__shakeY' : ''">
+    <section class="stats">
+        <div class="cpu">
+            <mat-icon aria-hidden="false" fontIcon="smart_toy"></mat-icon>
+            <h3>Coins: {{ slotMachineWallet() }}</h3>
+        </div>
+        <div [class]="isClosed() ? 'vs animate__animated animate__flipInY' : 'vs'"></div>
+        <div class="player">
+            <mat-icon aria-hidden="false" fontIcon="face"></mat-icon>
+            <h3>Coins: {{ playerWallet() }}</h3>
+            <h3>Free Plays: {{ freePlays() }}</h3>
+        </div>
+    </section>
+
+    <section class="frame">
+        <div class="slot" *ngFor="let slot of slots()">
+            <div #slotMachine class="slot-machine">
+                <ul>
+                    <li *ngFor="let item of slot; index as i" class="slot-item">
+                        <mat-icon
+                            [color]="isPlayerWinning() && i === 1 ? 'warn' : ''"
+                            aria-hidden="false"
+                            [fontIcon]="item.icon"
+                        ></mat-icon>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="base"></div>
+    <div class="lever-gear-slim"></div>
+    <div class="lever-gear-thick"></div>
+    <div class="lever-rod"></div>
+    <div class="lever-knob pulse"></div>
+    <div class="lever-knob" (click)="!isSpinning() && start(); startAndPlayAudio()"></div>
+    <audio #slotAudio src="../../../assets/slot.wav"></audio>
+</main>

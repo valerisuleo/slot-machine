@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>
+    {{ props.title }}
+</h2>
+<mat-dialog-content class="mat-typography">
+    <p *ngFor="let item of props.body">
+        {{ item }}
+    </p>
+    <hr />
+    <p *ngFor="let item of props.footer">
+        {{ item }}
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <ng-container *ngFor="let btn of props.actions">
+        <button *ngIf="btn.isVisible"
+            mat-flat-button
+            [mat-dialog-close]="btn.value"
+            [color]="btn.color">{{btn.label}}</button>
+    </ng-container>
+</mat-dialog-actions>
