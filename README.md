@@ -1,4 +1,4 @@
-# Slot Machine Game
+[Slot Machine Game](https://slot-machine-orpin.vercel.app)
 
 This repository contains the source code for a slot machine game built using Angular. The game leverages Angular's standalone components and signals for efficient state management and modular design.
 
